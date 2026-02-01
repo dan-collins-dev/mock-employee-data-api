@@ -1282,6 +1282,7 @@
         "company": "Acme",
         "email": "k.o'gleasane@acme.com",
         "department": "Services",
+        "birthDate": "03/01/1982",
         "createdDTS": 1427103372000,
         "employeeStatus": "Inactive"
     },
