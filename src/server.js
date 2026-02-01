@@ -12,7 +12,9 @@ const employees = JSON.parse(fs.readFileSync(employeesPath, "utf-8"));
 
 const app = express();
 
-app.get("/employees", (req, res) => {
+app.use(express.static(path.join(__dirname, "../public")));
+
+app.get("/api/employees", (req, res) => {
     res.status(200).json(employees);
 })
 
