@@ -16,7 +16,22 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/api/employees", (req, res) => {
     res.status(200).json(employees);
-})
+});
+
+app.get("/api/employees/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const employee = employees.find(emp => emp.id === id);
+
+        if (!employee) {
+            return res.status(404).json("Employee does not exist");
+        }
+
+        res.status(200).json(employee);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
